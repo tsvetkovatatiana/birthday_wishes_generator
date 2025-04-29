@@ -51,7 +51,7 @@ async def generate_birthday_wish(person_details: PersonDetails):
     if person_details.personality:
         prompt += f" They are known for being {', '.join(person_details.personality)}."
     if person_details.specific_message:
-        prompt += f" Please also include this message: '{person_details.specific_message}'."
+        prompt += f" Please also include this message in the end on a new line: '{person_details.specific_message}'."
 
     # --- Integration with LLM  ---
     import subprocess
