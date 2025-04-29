@@ -1,5 +1,6 @@
-import { useForm, Controller } from 'react-hook-form';
-import * as React from "react";
+import {useForm, Controller} from 'react-hook-form';
+import React, {useState} from "react";
+import axios from 'axios';
 
 interface FormData {
     name: string;
@@ -10,17 +11,37 @@ interface FormData {
 }
 
 export default function WishForm() {
-    const { handleSubmit, control, formState: { errors } } = useForm<FormData>();
+    const {handleSubmit, control, formState: {errors}} = useForm<FormData>();
     const [loading, setLoading] = React.useState(false);
+    const [response, setResponse] = useState('');
 
-    const onSubmit = (data: FormData) => {
+    const onSubmit = async (data: FormData) => {
         setLoading(true);
-        console.log('Form Data:', data);
-        setTimeout(() => {
+        setResponse('');
+
+        const payload = {
+            name: data.name,
+            style: data.style,
+            hobbies: data.hobbies
+                ? data.hobbies.split(',').map(h => h.trim())
+                : [],
+            personality: data.personality
+                ? data.personality.split(',').map(p => p.trim())
+                : [],
+            specific_message: data.specificMessage || ''
+        };
+
+        try {
+            const res = await axios.post('http://0.0.0.0:8000/generate_wish/', payload);
+            setResponse(res.data.wish);
+        } catch (error) {
+            console.error(error);
+            setResponse('Something went wrong. Please try again.');
+        } finally {
             setLoading(false);
-            alert('Wish Generated!');
-        }, 1000);
+        }
     };
+
 
     return (
         <div className="wish-form-container">
