@@ -31,7 +31,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Form & response containers */
 .wish-form-container {
     padding: 1rem;
     display: flex;
@@ -40,9 +39,8 @@ body {
 }
 
 
-.wish-form-paper,
-.wish-response {
-    margin: 0 auto; /* Ensures centering */
+.wish-form-paper {
+    margin: 0 auto;
     width: 100%;
     max-width: 800px;
     padding: 2rem;
@@ -125,18 +123,6 @@ button:hover {
 button:disabled {
     background-color: #a5d6a7;
     cursor: not-allowed;
-}
-
-/* Wish response block */
-.wish-response {
-    background-color: #ffffff6b;
-    padding: 2rem;
-    width: 90%;
-    max-width: 800px;
-    border-radius: 8px;
-    box-shadow: 8px 8px #FCA4E0;
-    text-align: center;
-    transition: all 0.3s ease;
 }
 
 .wish-response h3 {
