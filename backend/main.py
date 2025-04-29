@@ -1,16 +1,26 @@
-from typing import Union, List
+from typing import List, Optional
 
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 class PersonDetails(BaseModel):
     name: str
-    hobbies: Union[List[str], None] = None
-    personality: Union[List[str], None] = None
-    specific_message: Union[str, None] = None
-    style: Union[str, None] = None
+    hobbies: Optional[List[str]] = None
+    personality: Optional[List[str]] = None
+    specific_message: Optional[str] = None
+    style: str
 
 class BirthdayWishResponse(BaseModel):
     wish: str
