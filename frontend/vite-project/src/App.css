@@ -3,12 +3,15 @@ body {
     margin: 0;
     background-color: #fdedd4;
     font-family: Roboto, sans-serif;
+    line-height: 1.8;
+    font-size: 1rem;
 }
 
 .header-text {
     display: flex;
-    justify-content: center;
-    font-size: 1.5em;
+    justify-content: flex-start;
+    padding-left: 15%;
+    font-size: 1rem;
     font-weight: bold;
     color: #fdedd4;
     background-color: #155FCC;
@@ -18,25 +21,40 @@ body {
     overflow: hidden;
 }
 
+.container-form-and-response {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Form & response containers */
 .wish-form-container {
     padding: 1rem;
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-.wish-form-paper {
-    background-color: #ffffff6b;
-    padding: 2rem;
+
+.wish-form-paper,
+.wish-response {
+    margin: 0 auto; /* Ensures centering */
     width: 100%;
     max-width: 800px;
+    padding: 2rem;
+    background-color: #ffffff6b;
     border-radius: 8px;
     box-shadow: 8px 8px #FCA4E0;
-    
+    transition: all 0.3s ease;
 }
 
 .wish-form-paper h2 {
     margin-bottom: 1.5rem;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: #333;
 }
 
@@ -64,6 +82,10 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
 }
 
 input.error,
@@ -84,20 +106,71 @@ textarea.error {
 
 button {
     padding: 0.75rem 1.5rem;
-    background-color: #4caf50;
+    background-color: #11a253;
     color: white;
     border: none;
     border-radius: 6px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.3s;
+    width: 100%;
+    max-width: 200px;
+    transition: background-color 0.3s, transform 0.2s ease;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #0e8645;
+    transform: scale(1.02);
 }
 
 button:disabled {
     background-color: #a5d6a7;
     cursor: not-allowed;
+}
+
+/* Wish response block */
+.wish-response {
+    background-color: #ffffff6b;
+    padding: 2rem;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 8px;
+    box-shadow: 8px 8px #FCA4E0;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.wish-response h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.wish-response p {
+    font-size: 1rem;
+    color: #444;
+}
+
+/* Responsive layout for small screens */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-actions {
+        justify-content: center;
+    }
+
+    .header-text {
+        font-size: 0.9rem;
+        padding-left: 5%;
+    }
+
+    .wish-form-paper h2,
+    .wish-response h3 {
+        font-size: 1.3rem;
+    }
+
+    .wish-form-container {
+        padding: 1rem 0.5rem;
+    }
 }
