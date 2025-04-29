@@ -156,5 +156,5 @@ export default function WishForm() {
                 </div>
             </div>
         </div>
-    );
+    )
 }
