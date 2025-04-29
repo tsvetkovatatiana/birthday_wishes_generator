@@ -10,6 +10,7 @@ class PersonDetails(BaseModel):
     hobbies: Union[List[str], None] = None
     personality: Union[List[str], None] = None
     specific_message: Union[str, None] = None
+    style: Union[str, None] = None
 
 class BirthdayWishResponse(BaseModel):
     wish: str
@@ -33,7 +34,8 @@ async def generate_birthday_wish(person_details: PersonDetails):
     Returns:
         A BirthdayWishResponse containing the generated wish.
     """
-    prompt = f"Write a warm and celebratory birthday wish for {person_details.name}."
+    prompt = (f"Write a celebratory birthday wish for {person_details.name}."
+              f" Write in this specific style {person_details.style}.")
     if person_details.hobbies:
         prompt += f" They enjoy {', '.join(person_details.hobbies)}."
     if person_details.personality:
@@ -41,7 +43,7 @@ async def generate_birthday_wish(person_details: PersonDetails):
     if person_details.specific_message:
         prompt += f" Please also include this message: '{person_details.specific_message}'."
 
-    # --- Integration with LLM (Ollama in this case) ---
+    # --- Integration with LLM  ---
     import subprocess
 
     try:
