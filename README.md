@@ -6,9 +6,8 @@ or a specific message — and get a custom birthday greeting.
 
 Local web app for those who sometimes struggle to put their wishes to close ones into words. 
 
-<img src="images/screen1.png" alt="screenshot-welcome-box" width="200"/>
-<img src="images/screen2.png" alt="screenshot-user-form" width="200"/>
-<img src="images/screen3.png" alt="screenshot-respose-box" width="200"/>
+<img src="images/screen1.png" alt="screenshot-welcome-box" width="400"/> <img src="images/screen2.png" alt="screenshot-user-form" width="400"/>
+<img src="images/screen3.png" alt="screenshot-respose-box" width="400"/>
 
 
 - Generate meaningful birthday wishes with just a few inputs
